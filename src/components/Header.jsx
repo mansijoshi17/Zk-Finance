@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Web3Context } from "../context/context";
+import { shortAddress } from "../config";
 
 export const Header = () => {
+  const web3Context = React.useContext(Web3Context);
+  const { address, connectWallet } = web3Context;
+
   return (
     <nav>
       <Link to={`/`} style={{ textDecoration: "none" }} className="logo">
@@ -18,13 +23,23 @@ export const Header = () => {
             Verify
           </Link>
         </li>
-        <li className="zoom">
-          <button
-            className="button "
-            style={{ padding: "5px 5px", fontSize: "15px" }}
-          >
-            Connect Wallet
-          </button>
+        <li>
+          {address ? (
+            <button
+              className="button "
+              style={{ padding: "5px 5px", fontSize: "15px" }}
+            >
+              {shortAddress(address)}
+            </button>
+          ) : (
+            <button
+              className="button "
+              style={{ padding: "5px 5px", fontSize: "15px" }}
+              onClick={connectWallet}
+            >
+              Connect Wallet
+            </button>
+          )}
         </li>
       </ul>
       <ul className="menu-links menu-collapsed">

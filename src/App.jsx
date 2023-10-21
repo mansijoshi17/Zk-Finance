@@ -11,6 +11,8 @@ import { Home } from "./components/Home";
 import { Generate } from "./components/Generate";
 import { Verify } from "./components/Verify";
 
+import { Web3ContextProvider } from "./context/context";
+
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -24,7 +26,9 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={router} />
+      <Web3ContextProvider>
+        <RouterProvider router={router} />
+      </Web3ContextProvider>
     </>
   );
 }
