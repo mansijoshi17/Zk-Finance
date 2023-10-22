@@ -1,8 +1,8 @@
-import "@nomicfoundation/hardhat-toolbox";
-import "@nomiclabs/hardhat-ethers";
-import "@nomicfoundation/hardhat-chai-matchers";
+require("@nomicfoundation/hardhat-toolbox");
+require("hardhat-deploy");
+require("hardhat-deploy-ethers");
 
-import * as dotenv from "dotenv";
+require("dotenv").config();
 dotenv.config();
 
 const config = {
