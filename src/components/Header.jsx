@@ -10,7 +10,7 @@ export const Header = () => {
   return (
     <nav>
       <Link to={`/`} style={{ textDecoration: "none" }} className="logo">
-        Zk-Finance
+        ZK-Reports
       </Link>
       <ul className="desktop-menu">
         <li className="zoom">
